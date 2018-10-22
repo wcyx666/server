@@ -10,6 +10,9 @@
       <el-form-item label="文章地区">
         <el-input v-model="formLabelAlign.local"></el-input>
       </el-form-item>
+      <el-form-item label="文章展示图">
+        <el-input v-model="formLabelAlign.url"></el-input>
+      </el-form-item>
     </el-form>
     <div ref="editor" style="text-align:left" :defaultMsg=defaultMsg :config=config></div>
     <el-button @click="getContent">默认按钮</el-button>
@@ -44,7 +47,8 @@
         formLabelAlign: {
           name: '',
           local: '',
-          title: ''
+          title: '',
+          url:""
         }
       }
     },
@@ -96,14 +100,15 @@
     methods: {
       getContent: function () {
         let that = this;
-        let params = JSON.stringify({
-            title:'123',
-            name:'22',
-            local:'33',
-            content:that.editorContent,
-        })
+        let params = {
+            title:that.formLabelAlign.title,
+            name:that.formLabelAlign.name,
+            local:that.formLabelAlign.local,
+            img:that.formLabelAlign.url,
+            content:that.editorContent
+        }
         console.log(params);
-        const res = http.post(api.Article, params);
+        const res = http.post(api.Article, params); 
         console.log(res);
       }
     }

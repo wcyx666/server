@@ -3,6 +3,7 @@
 import axios from 'axios'
 import qs from 'qs'
 
+
 axios.interceptors.request.use(config => {
   // loading
   return config
@@ -49,7 +50,7 @@ export default {
       data: qs.stringify(data),
       timeout: 10000,
       headers: {
-        'Content-Type': 'application/json',
+        'content-type': 'application/x-www-form-urlencoded'
       }
     }).then(
       (response) => {
