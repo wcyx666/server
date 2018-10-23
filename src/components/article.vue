@@ -58,7 +58,7 @@
         this.editorContent = html
       }
       // 配置服务器端地址
-      editor.customConfig.uploadImgServer = '/api/php/Upload.php';
+      editor.customConfig.uploadImgServer = '/api/news-api/Upload.php';
       editor.customConfig.uploadFileName = "file";      //文件名称  也就是你在后台接受的 参数值
       editor.customConfig.uploadImgShowBase64 = false;   // 使用 base64 保存图片
       // editor.customConfig.customAlert = function (info) { //自己设置alert错误信息
@@ -87,10 +87,11 @@
               // insertImg('https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png')
           },
           customInsert: function (insertImg, result, editor) {
+              console.log(result)
               // 图片上传并返回结果，自定义插入图片的事件（而不是编辑器自动插入图片！！！）
               // insertImg 是插入图片的函数，editor 是编辑器对象，result 是服务器端返回的结果
               // 举例：假如上传图片成功后，服务器端返回的是 {url:'....'} 这种格式，即可这样插入图片：
-              insertImg(result.url);
+              insertImg('/api/news-api/'+result.data);
           }
       };
       editor.customConfig.showLinkImg = true; //是否开启网络图片，默认开启的。

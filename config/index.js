@@ -13,7 +13,7 @@ module.exports = {
     proxyTable: {
       '/api': {
           // 测试环境
-          target: 'http://127.0.0.1',  // 接口域名
+          target: 'http://120.78.72.0',  // 接口域名
           changeOrigin: true,  //是否跨域
           pathRewrite: {
               '^/api': ''   //需要rewrite重写的,
@@ -52,7 +52,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
 
     /**
      * Source Maps
